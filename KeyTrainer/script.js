@@ -11,7 +11,11 @@ const fallingKeyElement = document.getElementById('fallingKey');
 const scoreElement = document.getElementById('score');
 const timerElement = document.getElementById('timer');
 const numberElement = document.getElementById('number');
+const unusedKeysElement = document.getElementById('unused');
 
+function updateUnusedKeys() {
+    unusedKeysElement.textContent = 'Неиспользованные клавиши: ' + listKeys.join(', ');
+}
 // Функция для запуска игры
 function startGame() {
     // Проверяем, остались ли клавиши в списке
@@ -34,6 +38,7 @@ function startGame() {
     timer = 5; // Сбрасываем таймер на 5 секунд
     timerElement.textContent = timer; // Обновляем отображение таймера
 
+    updateUnusedKeys();
 
     // Запускаем интервал для отсчета времени
     intervalId = setInterval(() => {
@@ -72,12 +77,11 @@ document.addEventListener('keydown', (event) => {
 
         // Убираем нажатую клавишу из списка, чтобы она больше не появлялась
         listKeys.splice(listKeys.indexOf(currentKey), 1);
-       
         clearInterval(intervalId); // Останавливаем текущий интервал
         startGame(); // Запускаем новую игру с новой клавишей
     }
 });
 
-
+//
 // Запускаем игру при загрузке скрип
 

@@ -31,7 +31,7 @@ body {
 }
 
 
-.score, .timer, .number {
+.score, .timer, .number, .unused {
     position: absolute;
     top: 10px;
     color: black;  /* Не стал изменять цвет текста по заданию потому что эстетически не нравится, но для этого нужно просто изменить цвет на этой строке */
@@ -44,6 +44,10 @@ body {
 }
 .number{
     top:100px;
+}
+
+.unused {
+    top: 145px;
 }
 #headline {
     font-size: 2.5em; /* Размер заголовка */
