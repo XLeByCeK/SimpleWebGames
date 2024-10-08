@@ -4,13 +4,13 @@ let currentKey = ''; // Переменная для текущей падающ�
 let score = 0; // Переменная для хранения очков игрока
 let timer = 5; // Время, отведенное на каждую клавишу
 let intervalId; // Идентификатор интервала для управления таймером
-
+let randnumber=0;
 
 // Получаем элементы из HTML
 const fallingKeyElement = document.getElementById('fallingKey');
 const scoreElement = document.getElementById('score');
 const timerElement = document.getElementById('timer');
-
+const numberElement = document.getElementById('number');
 
 // Функция для запуска игры
 function startGame() {
@@ -22,8 +22,9 @@ function startGame() {
    
     // Выбираем случайную клавишу из списка
     currentKey = listKeys[Math.floor(Math.random() * listKeys.length)];
+    randnumber=listKeys.indexOf(currentKey);
+    numberElement.textContent =randnumber; // выводит номер клавиши кокнретно в массиве на момент текущего его состояния
     fallingKeyElement.textContent = currentKey; // Отображаем клавишу
-
 
     // Сбрасываем позицию падающей клавиши
     fallingKeyElement.style.top = '0px';
@@ -78,6 +79,5 @@ document.addEventListener('keydown', (event) => {
 });
 
 
-// Запускаем игру при загрузке скрипта
-startGame();
+// Запускаем игру при загрузке скрип
 
